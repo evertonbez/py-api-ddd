@@ -1,6 +1,4 @@
 from app.application.usecases.create_transaction import CreateTransactionUsecase
-from app.domain.repositories.transaction_repository import TransactionRepository
-
 from app.infrastructure.database.repositories.sqlalchemy_account_repository import (
     SqlAlchemyAccountRepository,
 )
@@ -13,6 +11,9 @@ from app.infrastructure.database.repositories.sqlalchemy_mcc_category_repository
 from app.infrastructure.database.repositories.sqlalchemy_merchant_mapping_repository import (
     SqlAlchemyMerchantMappingsRepository,
 )
+from app.infrastructure.database.repositories.sqlalchemy_transaction_repository import (
+    SqlAlchemyTransactionRepository,
+)
 
 
 def create_transaction_factory() -> CreateTransactionUsecase:
@@ -20,7 +21,7 @@ def create_transaction_factory() -> CreateTransactionUsecase:
     account_repository = SqlAlchemyAccountRepository()
     balance_repository = SqlAlchemyBalanceRepository()
     merchant_mappings_repository = SqlAlchemyMerchantMappingsRepository()
-    transaction_repository = TransactionRepository()
+    transaction_repository = SqlAlchemyTransactionRepository()
 
     return CreateTransactionUsecase(
         mcc_category_repository=mcc_category_repository,

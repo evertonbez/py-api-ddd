@@ -49,5 +49,4 @@ class TransactionModel(Base):
     mcc = Column(String, nullable=False)
     merchant = Column(String, nullable=True)
     used_category = Column(String, nullable=False)
-    status = Column(String, nullable=False)
     created_at = Column(DateTime, nullable=False)
