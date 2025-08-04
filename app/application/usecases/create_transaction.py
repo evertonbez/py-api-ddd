@@ -82,6 +82,35 @@ class CreateTransactionUsecase(Usecase):
 
             return CreateTransactionResponse(code="00", message="Transação aprovada")
 
+        if mcc_category.category != "CASH":
+            cash_balance = self.balance_repository.get_by_account_id_and_category(
+                account.id, "CASH"
+            )
+
+            if not cash_balance:
+                cash_balance = Balance(
+                    account_id=account.id,
+                    category="CASH",
+                    amount=0,
+                )
+
+            if request.amount <= cash_balance.amount:
+                cash_balance.debit_amount(request.amount)
+                self.balance_repository.save(cash_balance)
+
+                transaction = Transaction(
+                    account_id=account.id,
+                    amount=request.amount,
+                    mcc=effective_mcc,
+                    merchant=request.merchant,
+                    used_category=cash_balance.category,
+                )
+                self.transaction_repository.save(transaction)
+
+                return CreateTransactionResponse(
+                    code="00", message="Transação aprovada com saldo de CASH"
+                )
+
         return CreateTransactionResponse(code="51", message="Saldo insuficiente")
 
     def _get_effective_mcc(self, original_mcc: str, merchant: str) -> str:
