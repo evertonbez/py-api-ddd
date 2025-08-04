@@ -1,9 +1,11 @@
 from app.domain.entities.balance import Balance
 from app.domain.entities.mcc_category import MccCategory
+from app.domain.entities.merchant_mapping import MerchantMapping
 from app.infrastructure.database.models import (
     AccountModel,
     BalanceModel,
     MccCategoriesModel,
+    MerchantMappingsModel,
 )
 from app.domain.entities.account import Account
 
@@ -23,7 +25,6 @@ def balance_to_entity(orm: BalanceModel) -> Balance:
         category=orm.category,
         amount=orm.amount,
         created_at=orm.created_at,
-        updated_at=orm.updated_at,
     )
 
 
@@ -34,7 +35,6 @@ def entity_to_balance(entity: Balance) -> BalanceModel:
         category=entity.category,
         amount=entity.amount,
         created_at=entity.created_at,
-        updated_at=entity.updated_at,
     )
 
 
@@ -45,4 +45,13 @@ def mcc_categories_to_entity(orm: MccCategoriesModel) -> MccCategory:
         category=orm.category,
         created_at=orm.created_at,
         updated_at=orm.updated_at,
+    )
+
+
+def merchant_mapping_to_entity(orm: MerchantMappingsModel) -> MerchantMapping:
+    return MerchantMapping(
+        id=orm.id,
+        pattern=orm.pattern,
+        override_mcc=orm.override_mcc,
+        created_at=orm.created_at,
     )
