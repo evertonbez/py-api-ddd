@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from ast import List
 
-from app.domain.entities.account import Account
 from app.domain.entities.balance import Balance
 
 
