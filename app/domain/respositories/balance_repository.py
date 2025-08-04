@@ -15,3 +15,7 @@ class BalanceRepository(ABC):
         self, account_id: str, category: str
     ) -> Balance | None:
         raise NotImplementedError
+
+    @abstractmethod
+    def update_balance(self, balance: Balance) -> None:
+        raise NotImplementedError
