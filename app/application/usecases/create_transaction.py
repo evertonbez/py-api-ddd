@@ -47,7 +47,7 @@ class CreateTransactionUsecase(Usecase):
 
         effective_mcc = self._get_effective_mcc(request.mcc, request.merchant)
 
-        mcc_category = self.mcc_categories_repository.get_by_mcc(effective_mcc)
+        mcc_category = self.mcc_category_repository.get_by_mcc(effective_mcc)
 
         if not mcc_category:
             mcc_category = MccCategory(

@@ -11,11 +11,11 @@ from app.domain.entities.account import Account
 
 
 def account_to_entity(orm: AccountModel) -> Account:
-    return Account(id=orm.id, balance=orm.balance)
+    return Account(id=orm.id, created_at=orm.created_at)
 
 
 def entity_to_account(entity: Account) -> AccountModel:
-    return AccountModel(id=entity.id, balance=entity.balance)
+    return AccountModel(id=entity.id, created_at=entity.created_at)
 
 
 def balance_to_entity(orm: BalanceModel) -> Balance:
@@ -40,11 +40,7 @@ def entity_to_balance(entity: Balance) -> BalanceModel:
 
 def mcc_categories_to_entity(orm: MccCategoriesModel) -> MccCategory:
     return MccCategory(
-        id=orm.id,
-        mcc=orm.mcc,
-        category=orm.category,
-        created_at=orm.created_at,
-        updated_at=orm.updated_at,
+        id=orm.id, mcc=orm.mcc, category=orm.category, created_at=orm.created_at
     )
 
 

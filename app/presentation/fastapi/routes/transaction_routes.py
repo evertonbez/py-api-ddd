@@ -15,4 +15,5 @@ async def create_transaction(request: dict):
     try:
         return create_transaction_factory().execute(CreateTransactionRequest(**request))
     except Exception as e:
+        print(e)
         return CreateTransactionResponse(code="07", message="Erro interno")

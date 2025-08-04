@@ -7,7 +7,7 @@
         "request": "launch",
         "module": "uvicorn",
         "args": [
-          "app.main.main:app",
+          "app.main:app",
           "--reload"
         ],
         "console": "integratedTerminal",

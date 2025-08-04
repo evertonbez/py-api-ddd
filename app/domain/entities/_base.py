@@ -7,4 +7,3 @@ from typing import Optional
 class BaseEntity:
     id: Optional[int] = None
     created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None

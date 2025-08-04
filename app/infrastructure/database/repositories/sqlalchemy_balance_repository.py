@@ -36,10 +36,7 @@ class SqlAlchemyBalanceRepository(BalanceRepository):
                     BalanceModel.account_id == balance.account_id,
                     BalanceModel.category == balance.category,
                 )
-                .values(
-                    amount=balance.amount,
-                    updated_at=balance.updated_at,
-                )
+                .values(amount=balance.amount)
             )
             session.execute(stmt)
             session.commit()
