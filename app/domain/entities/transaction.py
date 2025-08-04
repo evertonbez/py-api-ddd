@@ -10,4 +10,3 @@ class Transaction(BaseEntity):
     mcc: str
     merchant: str
     used_category: str
-    status: str

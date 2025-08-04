@@ -9,7 +9,9 @@ my_project/
 │ │ │ └── account.py # Entidade
 │ │ └── services/
 │ │ └── transfer_service.py # Lógica de negócio
-│
+│ │ └── repositories/
+│ │ └── account_repository.py # Interfaces de repositório
+│ │
 │ ├── application/ # Casos de uso (Application Layer)
 │ │ ├── **init**.py
 │ │ └── use_cases/
