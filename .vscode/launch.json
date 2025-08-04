@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Poetry + FastAPI",
+        "type": "python",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": [
+          "app.main.main:app",
+          "--reload"
+        ],
+        "console": "integratedTerminal",
+        "justMyCode": false,
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}"
+        }
+      }
+    ]
+  }
+  
