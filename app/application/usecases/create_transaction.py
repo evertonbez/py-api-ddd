@@ -2,13 +2,13 @@ from app.domain.contracts.usecase import InputData, Usecase
 from app.domain.entities.transaction import Transaction
 from app.domain.entities.balance import Balance
 from app.domain.entities.mcc_category import MccCategory
-from app.domain.respositories.account_repository import AccountRepository
-from app.domain.respositories.balance_repository import BalanceRepository
-from app.domain.respositories.mcc_category_repository import MccCategoryRepository
-from app.domain.respositories.merchant_mapping_repository import (
+from app.domain.repositories.account_repository import AccountRepository
+from app.domain.repositories.balance_repository import BalanceRepository
+from app.domain.repositories.mcc_category_repository import MccCategoryRepository
+from app.domain.repositories.merchant_mapping_repository import (
     MerchantMappingsRepository,
 )
-from app.domain.respositories.transaction_repository import TransactionRepository
+from app.domain.repositories.transaction_repository import TransactionRepository
 
 
 class CreateTransactionRequest(InputData):
