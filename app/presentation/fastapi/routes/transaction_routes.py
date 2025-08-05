@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.application.usecases.create_transaction import (
+from app.application.usecases.create_transaction_usecase import (
     CreateTransactionRequest,
     CreateTransactionResponse,
 )

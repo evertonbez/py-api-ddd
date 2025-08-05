@@ -1,4 +1,6 @@
-from app.application.usecases.create_transaction import CreateTransactionUsecase
+from app.application.usecases.create_transaction_usecase import (
+    CreateTransactionUsecase,
+)
 from app.infrastructure.database.repositories.sqlalchemy_account_repository import (
     SqlAlchemyAccountRepository,
 )

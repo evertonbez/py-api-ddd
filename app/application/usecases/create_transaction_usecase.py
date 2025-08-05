@@ -1,3 +1,4 @@
+from typing import Optional
 from app.domain.contracts.usecase import InputData, Usecase
 from app.domain.entities.transaction import Transaction
 from app.domain.entities.balance import Balance
@@ -15,7 +16,7 @@ class CreateTransactionRequest(InputData):
     account_id: str
     amount: float
     mcc: str
-    merchant: str
+    merchant: Optional[str] = None
 
 
 class CreateTransactionResponse(InputData):
@@ -24,7 +25,6 @@ class CreateTransactionResponse(InputData):
 
 
 class CreateTransactionUsecase(Usecase):
-
     def __init__(
         self,
         account_repository: AccountRepository,
